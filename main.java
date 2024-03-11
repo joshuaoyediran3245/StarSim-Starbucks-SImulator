@@ -12,20 +12,24 @@ public class main{
 
     Scanner scan = new Scanner(System.in);
     menu menu1 = new menu(); 
+    register reg1 = new register();
     
     // Dislpay the temportal "interfece" so they can choose an option
-    
     System.out.println("[Welcome to Starbucks!]");
     System.out.println("[How can we help you today?]");
-    System.out.println("[1] Place an Order");  
-    System.out.println("[2] See History of Orders");  
-    System.out.println("[3] Quit");  
-    int decision = scan.nextInt();
+    
+    //Boolean to check that the program is done and it does not run it again
+    boolean programFinished = false;
+    
 
-    boolean orderfinished = false;
-
-    while(!orderfinished)
+    while(!programFinished)
     {
+        // We show the options and take the input, depending on the input the program will show the different otions
+        System.out.println("[1] Place an Order");  
+        System.out.println("[2] See History of Orders");  
+        System.out.println("[3] Quit");  
+        int decision = scan.nextInt();
+
         // Check that they are selecting a posible option
 
         while  ((decision!=1) && (decision!=2 ) && (decision!=3))
@@ -35,25 +39,91 @@ public class main{
         decision = scan.nextInt();
         
         }
-        // Begin to display menu and construct order
-
-        if(decision==1)
-        {
-           
-           menu1.ListMenu();
-           menu1.displayMenu();
-
-            orderfinished = true;
-           
-
-
-        }
-
+        // Begin to display menu and construct order, max items 2,
         
 
+        
+        if(decision==1)
+        {
+           //Display the menu for drinks
+            menu1.ListMenu();
+            menu1.displayMenuDrinks();
+
+            // Tells the customer that they can order max 2
+            System.out.println("You can order up to 2 drinks");
+            System.out.println("How many drinks would you like?");
+            
+            int count = scan.nextInt();
+            String foodOrDrink;
+            double price;
+
+            // Loop for the amout of drinks that its ordered
+            for(int i = 0; i<count;i++)
+            {
+                System.out.println("Select a drink");
+                foodOrDrink= scan.next();
+                
+                //checks that we have the item in the menu
+                while(!menu1.checkMenuDrink(foodOrDrink))
+                {
+                    System.out.println("It seems we dont have that iteam");
+                    System.out.println("Plase select an item from the menu");
+                    foodOrDrink = scan.next();
+                }
+
+                //add the price of the item and the item itself to the order
+                price = menu1.getPriceDrink(foodOrDrink);
+                reg1.additem(price, foodOrDrink);
+                
+
+            }
+
+            //Display food menu
+            menu1.displayFoodMenu();
+            System.out.println("You can order up to 3 food items");
+            System.out.println("How many food items would you like?");
+            count= scan.nextInt();
+
+            // Loop for the amout of drinks that its ordered
+            for(int i = 0; i<count;i++)
+            {
+                System.out.println("Select a food item");
+                foodOrDrink= scan.next();
+                
+                //checks that we have the item in the menu
+                while(!menu1.checkMenuFood(foodOrDrink))
+                {
+                    System.out.println("It seems we dont have that iteam");
+                    System.out.println("Plase select an item from the menu");
+                    foodOrDrink = scan.next();
+                }
+
+                //add the price of the item and the item itself to the order
+                price = menu1.getPriceFood(foodOrDrink);
+                reg1.additem(price, foodOrDrink);
+
+            }
+
+            //Gives total and the customer goes back to the first loop, where the options are displayed again
+            System.out.println("Your total today is: "+reg1.getTotal());
+            System.out.println("[Your order is going to be ready in a moment]");
+            System.out.println("[Select an option to continue]");
+
+        }
+        
+        // Option to display past orders, still working on it, i need to figure out the way to have more than one order saved!
+         else if(decision==2)
+        {
+            reg1.displayPastOrders();
+            System.out.println("[Select an option to continue]");
+
+        }
+        
+        // Exits the program
+        else if(decision==3)
+        {
+            programFinished = true;
+        }
     }   
-
-
 }
-
 }

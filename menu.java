@@ -26,11 +26,11 @@ public void ListMenu()
 
   //Populate Beverages
 
-  beverages.put("Caffe Americano", 2.50); //Key Food/Item name. Value = Price
-  beverages.put("Caffe Latte", 3.00);
+  beverages.put("Americano", 2.50); //Key Food/Item name. Value = Price // I changed some drinks, so its easier to use the key, if the key has space, is complicated
+  beverages.put("Latte", 3.00);
   beverages.put("Cappuccino", 3.00);
   beverages.put("Espresso", 2.00);
-  beverages.put("Green Tea", 3.50); 
+  beverages.put("Frappuccino", 3.50); 
 
 
   //Populate Foods
@@ -44,20 +44,64 @@ public void ListMenu()
 }
 
 //Here is the method used to display the Menu
-public void displayMenu() 
+public void displayMenuDrinks() 
 {
-System.out.println("==== Starbucks Menu ===="); //Using SOP to display the "Graphics" for the menu
-System.out.println("Beverages: ");
+  System.out.println("==== Starbucks Menu ===="); //Using SOP to display the "Graphics" for the menu
+  System.out.println("Beverages: ");
 
-//This for-each loop iterates over the keys of the 'beverages' map. This beverages map contains the names of the beverages set to keys and their prices set to values
-for (String beverage : beverages.keySet())
-{
-System.out.printf("%-20s $%.2f%n", beverage, beverages.get(beverage));
+  //This for-each loop iterates over the keys of the 'beverages' map. This beverages map contains the names of the beverages set to keys and their prices set to values
+  for (String beverage : beverages.keySet())
+  {
+  System.out.printf("%-20s $%.2f%n", beverage, beverages.get(beverage));
+  }
+
+
+
+
 }
 
 
+// Here we are going to get the price of an item when we want to place an order for Drinks
+public double getPriceDrink(String drink)
+{
+  double priceOfDrink = beverages.get(drink);
+  return priceOfDrink;
+}
+
+//Checks if we have the Drink in the menu
+public boolean checkMenuDrink(String drink)
+{
+  boolean checking = beverages.containsKey(drink);
+  return checking;
+}
+
+// display food items
+
+public void displayFoodMenu() 
+{
+  System.out.println("Food Items: ");
+
+  //This for-each loop iterates over the keys of the 'foods' map. This foods map contains the names of the foods set to keys and their prices set to values
+  for (String food : foods.keySet())
+  {
+  System.out.printf("%-20s $%.2f%n", food, foods.get(food));
+  }
+
+}
+
+//Checks if we have the Food in the menu
+public boolean checkMenuFood(String food)
+{
+  boolean checking = foods.containsKey(food);
+  return checking;
+}
 
 
+// Here we are going to get the price of an item when we want to place an order for Foods
+public double getPriceFood(String food)
+{
+  double priceOfFood = foods.get(food);
+  return priceOfFood;
 }
 
 }

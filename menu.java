@@ -55,7 +55,16 @@ for (String beverage : beverages.keySet())
 System.out.printf("%-20s $%.2f%n", beverage, beverages.get(beverage));
 }
 
-//New Code Goes here
+//Foods
+System.out.println("Food: ");
+
+//This for-each loop iterates over the keys of the 'Food' map. This beverages map contains the names of the Food set to keys and their prices set to values
+for (String food : foods.keySet())
+{
+System.out.printf("%-20s $%.2f%n", food, foods.get(food));
+}
+
+
 
 
 }

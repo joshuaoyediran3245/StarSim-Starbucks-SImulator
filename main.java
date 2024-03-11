@@ -43,7 +43,8 @@ public class main{
            menu1.ListMenu();
            menu1.displayMenu();
 
-           orderfinished = true;
+            orderfinished = true;
+           
 
 
         }

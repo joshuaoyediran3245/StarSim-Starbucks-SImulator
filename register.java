@@ -19,8 +19,8 @@ public double getTotal()
     return totalPrice;
 }
 
-public int getItemCount() {
-
+public int getItemCount() 
+{
     return itemsOrdered.size();
 }
 

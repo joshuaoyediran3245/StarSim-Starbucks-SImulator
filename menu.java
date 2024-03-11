@@ -10,7 +10,7 @@ import java.util.Map;
 
 
 
-public class Menu {
+public class menu {
 //Create the map top store menu items with their prices
 
 private Map<String, Double> beverages; //One map for beverages

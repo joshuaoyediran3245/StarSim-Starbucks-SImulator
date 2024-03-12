@@ -54,7 +54,16 @@ public class main{
             System.out.println("You can order up to 2 drinks");
             System.out.println("How many drinks would you like?");
             
-            int count = scan.nextInt();
+            // checks for the right number of drinks in the order, the max is 2, no more than that
+            String checkNum = scan.next();
+            while(!(checkNum.equals("0")||checkNum.equals("1")||checkNum.equals("2")))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please select how many drinks would you like, up to 2 drinks");
+                checkNum = scan.next();
+            }
+            
+            int count = Integer.valueOf(checkNum);
             String foodOrDrink;
             double price;
 
@@ -83,7 +92,18 @@ public class main{
             menu1.displayFoodMenu();
             System.out.println("You can order up to 3 food items");
             System.out.println("How many food items would you like?");
-            count= scan.nextInt();
+            
+            // checks for the right number of foods in the order, the max is 3, no more than that
+            checkNum = scan.next();
+            while(!(checkNum.equals("0")||checkNum.equals("1")||checkNum.equals("2")||checkNum.equals("3")))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please select how many drinks would you like, up to 2 drinks");
+                checkNum = scan.next();
+            }
+            
+
+            count = Integer.valueOf(checkNum);
 
             // Loop for the amout of drinks that its ordered
             for(int i = 0; i<count;i++)
@@ -130,8 +150,18 @@ public class main{
             else
             {
             reg1.displayPastOrders();
-            int orderChoose = scan.nextInt();
-            reg1.openSelectedOrder(orderChoose);
+            
+            //Checks that it is a posible integer, by first taking the string, converting to integer and checking the range, which is the num of orders
+            String orderChoose = scan.next();
+            while(((Integer.valueOf(orderChoose))<=0)||((Integer.valueOf(orderChoose))>reg1.getOrdersCount()))
+            {
+            System.out.println("Invalid order number");
+            System.out.println("Please select a valid number for an order ");
+            orderChoose = scan.next();
+            }
+
+
+            reg1.openSelectedOrder(Integer.valueOf(orderChoose));
             }
         }
         
@@ -143,4 +173,3 @@ public class main{
     }   
 }
 }
-

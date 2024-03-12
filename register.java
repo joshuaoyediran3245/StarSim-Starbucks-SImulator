@@ -58,7 +58,7 @@ public void displayPastOrders()
     }
     System.out.println("");
 }
-
+// Put the order together in a String and prints the String of the order with the total price from the array pricesOfOrders
 public void openSelectedOrder(int orderNumber)
 {
     ArrayList<String> listOfItems = new ArrayList<String>();
@@ -79,10 +79,10 @@ public void openSelectedOrder(int orderNumber)
         }
         
     }
-    System.out.println("["+listForView+"]"+"Your total today is: $"+pricesOfOrders.get(orderNumber-1));
+    System.out.println("["+listForView+"]"+" Your total for this order is: $"+pricesOfOrders.get(orderNumber-1));
 
 }
-
+// Add price of the order to an arraylist and it has the same index of the number of order, It cleans the variable totalPrice so another other starts from $0
 public void addPriceToOrder(double price)
 {
     pricesOfOrders.add(price);

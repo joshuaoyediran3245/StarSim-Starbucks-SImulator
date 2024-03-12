@@ -35,7 +35,7 @@ public class main{
         while  ((decision!=1) && (decision!=2 ) && (decision!=3))
         {
         System.out.println("Invalid option");
-        System.out.println("Please select on of the options");
+        System.out.println("Please select one of the options");
         decision = scan.nextInt();
         
         }
@@ -66,8 +66,8 @@ public class main{
                 //checks that we have the item in the menu
                 while(!menu1.checkMenuDrink(foodOrDrink))
                 {
-                    System.out.println("It seems we dont have that iteam");
-                    System.out.println("Plase select an item from the menu");
+                    System.out.println("It seems we dont have that item");
+                    System.out.println("Please select an item from the menu");
                     foodOrDrink = scan.next();
                 }
 

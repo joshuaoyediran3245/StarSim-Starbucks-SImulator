@@ -20,7 +20,7 @@ public class main{
     
     //Boolean to check that the program is done and it does not run it again
     boolean programFinished = false;
-    
+    int orderNumber = 1;
 
     while(!programFinished)
     {
@@ -35,11 +35,12 @@ public class main{
         while  ((decision!=1) && (decision!=2 ) && (decision!=3))
         {
         System.out.println("Invalid option");
-        System.out.println("Please select one of the options");
+        System.out.println("Please select on of the options");
         decision = scan.nextInt();
         
         }
         // Begin to display menu and construct order, max items 2,
+        
         
 
         
@@ -66,14 +67,14 @@ public class main{
                 //checks that we have the item in the menu
                 while(!menu1.checkMenuDrink(foodOrDrink))
                 {
-                    System.out.println("It seems we dont have that item");
-                    System.out.println("Please select an item from the menu");
+                    System.out.println("It seems we dont have that iteam");
+                    System.out.println("Plase select an item from the menu");
                     foodOrDrink = scan.next();
                 }
 
                 //add the price of the item and the item itself to the order
                 price = menu1.getPriceDrink(foodOrDrink);
-                reg1.additem(price, foodOrDrink);
+                reg1.additem(price, foodOrDrink,orderNumber);
                 
 
             }
@@ -100,7 +101,7 @@ public class main{
 
                 //add the price of the item and the item itself to the order
                 price = menu1.getPriceFood(foodOrDrink);
-                reg1.additem(price, foodOrDrink);
+                reg1.additem(price, foodOrDrink,orderNumber);
 
             }
 
@@ -108,15 +109,30 @@ public class main{
             System.out.println("Your total today is: "+reg1.getTotal());
             System.out.println("[Your order is going to be ready in a moment]");
             System.out.println("[Select an option to continue]");
+            // number of order goes up
+            orderNumber++;
+            // price of order in a arraylist with all the prices of different orders
+            reg1.addPriceToOrder(reg1.getTotal());  
 
         }
         
         // Option to display past orders, still working on it, i need to figure out the way to have more than one order saved!
-         else if(decision==2)
+        else if(decision==2)
         {
+            //Checks that there is al least 1 order, else it would not go pass that
+            int pastOrders=reg1.getOrdersCount();
+            if(pastOrders==0)
+            {
+                System.out.println("There is no history on previos orders");
+                System.out.println("Please place an order first");
+            }
+            // Display the number of orders so the customer can select one
+            else
+            {
             reg1.displayPastOrders();
-            System.out.println("[Select an option to continue]");
-
+            int orderChoose = scan.nextInt();
+            reg1.openSelectedOrder(orderChoose);
+            }
         }
         
         // Exits the program
@@ -127,3 +143,4 @@ public class main{
     }   
 }
 }
+

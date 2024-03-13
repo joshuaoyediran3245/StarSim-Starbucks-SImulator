@@ -13,6 +13,7 @@ public class main{
     Scanner scan = new Scanner(System.in);
     menu menu1 = new menu(); 
     register reg1 = new register();
+    receipt rec1 = new receipt();
     // inventory inventory = new inventory(100, "Coffee Beans"); //Implementing the Inventory Class
     
     // Dislpay the temportal "interfece" so they can choose an option
@@ -22,6 +23,8 @@ public class main{
     //Boolean to check that the program is done and it does not run it again
     boolean programFinished = false;
     int orderNumber = 1;
+    String receipt1;
+    String checkNum;
 
     while(!programFinished)
     {
@@ -56,7 +59,7 @@ public class main{
             System.out.println("How many drinks would you like?");
             
             // checks for the right number of drinks in the order, the max is 2, no more than that
-            String checkNum = scan.next();
+            checkNum = scan.next();
             while(!(checkNum.equals("0")||checkNum.equals("1")||checkNum.equals("2")))
             {
                 System.out.println("Invalid option");
@@ -129,15 +132,38 @@ public class main{
             //Gives total and the customer goes back to the first loop, where the options are displayed again
             System.out.println("Your total today is: "+reg1.getTotal());
             System.out.println("[Your order is going to be ready in a moment]");
+            reg1.addPriceToOrder(reg1.getTotal());  
+
+            //ask if they want a printed receipt
+            System.out.println("[Would you like a receipt?]");
+            System.out.println("[yes][no]");
+
+            checkNum = scan.next();
+            while(!((checkNum.toLowerCase()).equals("yes")||(checkNum.toLowerCase()).equals("no")))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please insert yes or no");
+                checkNum = scan.next();
+            }
+
+            if(checkNum.toLowerCase().equals("yes"))
+            {
+            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber);
+            System.out.println(receipt1);
+
+            }
+            
+            
+
             System.out.println("[Select an option to continue]");
             // number of order goes up
             orderNumber++;
             // price of order in a arraylist with all the prices of different orders
-            reg1.addPriceToOrder(reg1.getTotal());  
+            
 
 
             //Updating the inventory based on the items ordered 
-            // inventory.ingredientsUsed(reg1.getIngredientsUsed(orderNumber));
+            // inventory.ingredientsUsed(reg1.getIngredientsUsed(orderNumber)); //Not in Use for now
 
         }
         
@@ -167,6 +193,29 @@ public class main{
 
 
             reg1.openSelectedOrder(Integer.valueOf(orderChoose));
+
+            //ask if they want a printed receipt
+            System.out.println("[Would you like a receipt for the order selected?]");
+            System.out.println("[yes][no]");
+
+            checkNum = scan.next();
+            while(!((checkNum.toLowerCase()).equals("yes")||(checkNum.toLowerCase()).equals("no")))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please insert yes or no");
+                checkNum = scan.next();
+            }
+
+            if(checkNum.toLowerCase().equals("yes"))
+            {
+            
+            orderNumber=Integer.valueOf(orderChoose);
+            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber);
+            System.out.println(receipt1);
+
+            }
+
+
             }
         }
         

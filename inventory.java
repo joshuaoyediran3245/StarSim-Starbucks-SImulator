@@ -1,6 +1,6 @@
-/* 
+/* // Not in use for now
 
-public class inventory {
+public class inventory {    
 
 //First we want to know how many indgredients is used for the order
 

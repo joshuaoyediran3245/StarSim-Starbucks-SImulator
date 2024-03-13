@@ -89,8 +89,20 @@ public void addPriceToOrder(double price)
     totalPrice=0;
 }
 
-//New method to get ingredients used in a specific order 
+public ArrayList<String> passOrderToReceipt(int orderNumber)
 
+{
+    
+ArrayList<String> listOfItems = new ArrayList<String>();
+for(String element :(ordersPlaced.get(orderNumber-1)))
+    {
+    listOfItems.add(element);
+    }
+return listOfItems;
+}
+
+//New method to get ingredients used in a specific order , Not in use for now
+/* 
 public ArrayList<String> getIngredientsUsed(int orderNumber) 
 {
     ArrayList<String> ingredients = new ArrayList<>(); 
@@ -100,5 +112,7 @@ public ArrayList<String> getIngredientsUsed(int orderNumber)
     }
     return ingredients;
 }
+*/
+
 
 }

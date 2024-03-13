@@ -89,4 +89,16 @@ public void addPriceToOrder(double price)
     totalPrice=0;
 }
 
+//New method to get ingredients used in a specific order 
+
+public ArrayList<String> getIngredientsUsed(int orderNumber) 
+{
+    ArrayList<String> ingredients = new ArrayList<>(); 
+
+    if (orderNumber > 0 && orderNumber <= ordersPlaced.size()) {
+        ingredients.addAll(ordersPlaced.get(orderNumber - 1));
+    }
+    return ingredients;
+}
+
 }

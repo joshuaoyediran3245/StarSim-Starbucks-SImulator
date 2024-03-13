@@ -1,5 +1,7 @@
+/* 
+
 public class inventory {
-    
+
 //First we want to know how many indgredients is used for the order
 
 private int quantityIngredients; 
@@ -43,3 +45,5 @@ public int getIngredients()
 
    
 }
+
+*/

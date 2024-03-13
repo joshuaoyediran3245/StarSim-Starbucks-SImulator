@@ -13,7 +13,7 @@ public class main{
     Scanner scan = new Scanner(System.in);
     menu menu1 = new menu(); 
     register reg1 = new register();
-    Inventory inventory = new Inventory(100, "Coffee Beans"); //Implementing the Inventory Class
+    // inventory inventory = new inventory(100, "Coffee Beans"); //Implementing the Inventory Class
     
     // Dislpay the temportal "interfece" so they can choose an option
     System.out.println("[Welcome to Starbucks!]");
@@ -137,7 +137,7 @@ public class main{
 
 
             //Updating the inventory based on the items ordered 
-            inventory.ingredientsUsed(reg1.getIngredientsUsed(orderNumber));
+            // inventory.ingredientsUsed(reg1.getIngredientsUsed(orderNumber));
 
         }
         

@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-public class receipt {
-    
-=======
+//<<<<<<< HEAD
 import java.util.ArrayList;
-
 public class receipt {
+
 
 private String finalReceipt;
 
@@ -33,5 +30,5 @@ for(int i =0;i<orderList.size();i++)
 finalReceipt+=" ------------------"+"\n";
 return finalReceipt;
 }
->>>>>>> 5a50953f2f3b78fb08e492a67dfbc1b03983c66a
+//>>>>>>> 5a50953f2f3b78fb08e492a67dfbc1b03983c66a
 }

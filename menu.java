@@ -104,4 +104,17 @@ public double getPriceFood(String food)
   return priceOfFood;
 }
 
+
+public Map<String,Double> mapPassDrinks()
+{
+
+  return beverages ;
+}
+public Map<String,Double> mapPassFood()
+{
+  
+  
+  return foods;
+}
+
 }

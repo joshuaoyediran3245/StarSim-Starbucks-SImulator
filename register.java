@@ -114,5 +114,8 @@ public ArrayList<String> getIngredientsUsed(int orderNumber)
 }
 */
 
-
+public double getTotalOfAnOrder( int orderNumber)
+{
+    return pricesOfOrders.get(orderNumber-1);
+}
 }

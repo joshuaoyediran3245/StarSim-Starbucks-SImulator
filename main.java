@@ -3,7 +3,7 @@
 // they need to select a posible number a different one would put them back in the loop
 
 import java.util.*;
-
+import java.util.Map;
 public class main{
 
     public static void main(String[] args){
@@ -16,6 +16,14 @@ public class main{
     receipt rec1 = new receipt();
     // inventory inventory = new inventory(100, "Coffee Beans"); //Implementing the Inventory Class
     
+    //
+    menu1.ListMenu();
+    Map<String,Double> mapForReceipt1 = menu1.mapPassDrinks();
+    Map<String,Double> mapForReceipt2 = menu1.mapPassFood();
+    
+    rec1.MapReciverDrinks(mapForReceipt1);
+    rec1.MapReciverFood(mapForReceipt2);
+
     // Dislpay the temportal "interfece" so they can choose an option
     System.out.println("[Welcome to Starbucks!]");
     System.out.println("[How can we help you today?]");
@@ -51,7 +59,7 @@ public class main{
         if(decision==1)
         {
            //Display the menu for drinks
-            menu1.ListMenu();
+            
             menu1.displayMenuDrinks();
 
             // Tells the customer that they can order max 2
@@ -130,7 +138,7 @@ public class main{
             }
 
             //Gives total and the customer goes back to the first loop, where the options are displayed again
-            System.out.println("Your total today is: "+reg1.getTotal());
+            System.out.println("[Your total today is: $"+reg1.getTotal()+"]");
             System.out.println("[Your order is going to be ready in a moment]");
             reg1.addPriceToOrder(reg1.getTotal());  
 
@@ -148,7 +156,7 @@ public class main{
 
             if(checkNum.toLowerCase().equals("yes"))
             {
-            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber);
+            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber, reg1.getTotalOfAnOrder(orderNumber));
             System.out.println(receipt1);
 
             }
@@ -210,7 +218,7 @@ public class main{
             {
             
             orderNumber=Integer.valueOf(orderChoose);
-            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber);
+            receipt1 = rec1.printReceipt((reg1.passOrderToReceipt(orderNumber)), orderNumber,reg1.getTotalOfAnOrder(orderNumber));
             System.out.println(receipt1);
 
             }

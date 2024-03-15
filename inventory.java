@@ -1,5 +1,7 @@
-public class inventory {
-    
+/* // Not in use for now
+
+public class inventory {    
+
 //First we want to know how many indgredients is used for the order
 
 private int quantityIngredients; 
@@ -21,8 +23,27 @@ public void updateInventoryLevel(int quantityToAdd)
 
 // Method to order more ingredients
 
-//...
+public void ingredientsUsed(int quanitityUsed) 
+{
+    quanitityIngredients -= quantityUsed;
+    System.out.println("Ingridents used. New Quanitity: " + quanitityIngredients);
+}
+//This will be a getter and setter. Used to get the quanitity of ingredients
+public int getQuantityIngredients()
+{
+return quanitityIngredients;
+}
+
+//Method to return the ingredients
+public int getIngredients()
+{
+    return indgredients;
+}
+
+
 
 
    
 }
+
+*/

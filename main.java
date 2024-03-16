@@ -136,15 +136,29 @@ public class main{
                 reg1.additem(price, foodOrDrink.toLowerCase(),orderNumber);
 
             }
-
+                // add tip to the order
+                System.out.println("[Would you like to leave a tip]");
+                System.out.println("[$1][$2][$5][No]");
+            checkNum = scan.next();
+            while(!((checkNum.equals("1")||(checkNum.equals("2"))||(checkNum).equals("5")||(checkNum.toLowerCase()).equals("no"))))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please select an amount for tip or No");
+                checkNum = scan.next();
+            }
+            
+            reg1.addPriceToOrder(reg1.getTotal()); 
+            Double tip = rec1.saveTip(checkNum.toLowerCase());
+            
+            
             //Gives total and the customer goes back to the first loop, where the options are displayed again
-            System.out.println("[Your total today is: $"+reg1.getTotal()+"]");
+            System.out.println("[Your total today is: $"+(reg1.getTotalOfAnOrder(orderNumber)+tip)+"]");
             System.out.println("[Your order is going to be ready in a moment]");
-            reg1.addPriceToOrder(reg1.getTotal());  
+             
 
             //ask if they want a printed receipt
             System.out.println("[Would you like a receipt?]");
-            System.out.println("[yes][no]");
+            System.out.println("[Yes][No]");
 
             checkNum = scan.next();
             while(!((checkNum.toLowerCase()).equals("yes")||(checkNum.toLowerCase()).equals("no")))
@@ -201,7 +215,7 @@ public class main{
 
 
             reg1.openSelectedOrder(Integer.valueOf(orderChoose));
-
+            System.out.println("[Your total for this order is: $"+(reg1.getTotalOfAnOrder(Integer.valueOf(orderChoose))+rec1.getTip(Integer.valueOf(orderChoose)))+"]");
             //ask if they want a printed receipt
             System.out.println("[Would you like a receipt for the order selected?]");
             System.out.println("[yes][no]");

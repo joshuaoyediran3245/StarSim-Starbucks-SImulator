@@ -4,11 +4,15 @@ import java.util.ArrayList;
 
 public class register {
 // For now this are the private variables, we can add more, im still figuring out how to do it better
-    private double totalPrice;
+    
+private double totalPrice;
     private ArrayList<ArrayList<String>> ordersPlaced = new ArrayList<ArrayList<String>>();
     private ArrayList<String> temporalList= new ArrayList<String>();
     private ArrayList<Double> pricesOfOrders = new ArrayList<Double>();
     private double tax = 1.21;
+
+
+
 // add item with price and name
 public void additem(double price, String item, int orderNumber)
 {
@@ -43,8 +47,8 @@ public int getOrdersCount()
 public void displayPastOrders()
 {
     //Strings all the name of the items in the order toghether
-    System.out.println("There is "+ ordersPlaced.size()+" orders");
-    System.out.println("Which one would you like to view?");
+    System.out.println("[There is "+ ordersPlaced.size()+" orders]");
+    System.out.println("[Which one would you like to view?]");
     for(int i = 0; i<ordersPlaced.size();i++)
     {
         if(i==0)
@@ -80,7 +84,7 @@ public void openSelectedOrder(int orderNumber)
         
     }
 
-    System.out.println("["+listForView+"]"+String.format(" [Your total for this order is: $%.2f",pricesOfOrders.get(orderNumber-1))+"]");
+    System.out.println("[Items on the order: "+listForView+"]");
 
 }
 // Add price of the order to an arraylist and it has the same index of the number of order, It cleans the variable totalPrice so another other starts from $0
@@ -118,5 +122,10 @@ public ArrayList<String> getIngredientsUsed(int orderNumber)
 public double getTotalOfAnOrder( int orderNumber)
 {
     return pricesOfOrders.get(orderNumber-1);
+}
+
+public void addtipToTotal(Double tip, int orderNumber)
+{
+    pricesOfOrders.set(orderNumber-1,pricesOfOrders.get(orderNumber-1)+tip);
 }
 }

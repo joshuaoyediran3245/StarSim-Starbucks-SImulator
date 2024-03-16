@@ -80,7 +80,7 @@ public void openSelectedOrder(int orderNumber)
         
     }
 
-    System.out.println("["+listForView+"]"+String.format(" [Your total for this order is: $%.2f",pricesOfOrders.get(orderNumber-1)*tax)+"]");
+    System.out.println("["+listForView+"]"+String.format(" [Your total for this order is: $%.2f",pricesOfOrders.get(orderNumber-1))+"]");
 
 }
 // Add price of the order to an arraylist and it has the same index of the number of order, It cleans the variable totalPrice so another other starts from $0

@@ -86,7 +86,7 @@ public class main{
                 foodOrDrink= scan.next();
                 
                 //checks that we have the item in the menu
-                while(!menu1.checkMenuDrink(foodOrDrink))
+                while(!menu1.checkMenuDrink(foodOrDrink.toLowerCase()))
                 {
                     System.out.println("It seems we dont have that iteam");
                     System.out.println("Plase select an item from the menu");
@@ -94,8 +94,8 @@ public class main{
                 }
 
                 //add the price of the item and the item itself to the order
-                price = menu1.getPriceDrink(foodOrDrink);
-                reg1.additem(price, foodOrDrink,orderNumber);
+                price = menu1.getPriceDrink(foodOrDrink.toLowerCase());
+                reg1.additem(price, foodOrDrink.toLowerCase(),orderNumber);
                 
 
             }
@@ -124,7 +124,7 @@ public class main{
                 foodOrDrink= scan.next();
                 
                 //checks that we have the item in the menu
-                while(!menu1.checkMenuFood(foodOrDrink))
+                while(!menu1.checkMenuFood(foodOrDrink.toLowerCase()))
                 {
                     System.out.println("It seems we dont have that iteam");
                     System.out.println("Plase select an item from the menu");
@@ -132,8 +132,8 @@ public class main{
                 }
 
                 //add the price of the item and the item itself to the order
-                price = menu1.getPriceFood(foodOrDrink);
-                reg1.additem(price, foodOrDrink,orderNumber);
+                price = menu1.getPriceFood(foodOrDrink.toLowerCase());
+                reg1.additem(price, foodOrDrink.toLowerCase(),orderNumber);
 
             }
 

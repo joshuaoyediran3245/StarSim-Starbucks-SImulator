@@ -26,20 +26,20 @@ public void ListMenu()
 
   //Populate Beverages
 
-  beverages.put("Americano", 2.50); //Key Food/Item name. Value = Price // I changed some drinks, so its easier to use the key, if the key has space, is complicated
-  beverages.put("Latte", 3.00);
-  beverages.put("Cappuccino", 3.00);
-  beverages.put("Espresso", 2.00);
-  beverages.put("Frappuccino", 3.50); 
+  beverages.put("americano", 2.50); //Key Food/Item name. Value = Price // I changed some drinks, so its easier to use the key, if the key has space, is complicated
+  beverages.put("latte", 3.00);
+  beverages.put("cappuccino", 3.00);
+  beverages.put("espresso", 2.00);
+  beverages.put("frappuccino", 3.50); 
 
 
   //Populate Foods
 
-  foods.put("Croissant", 2.00);
-  foods.put("Muffin", 2.50);
-  foods.put("Sandwich", 4.0);
-  foods.put("Salad", 5.00);
-  foods.put("Cake", 3.50); 
+  foods.put("croissant", 2.00);
+  foods.put("muffin", 2.50);
+  foods.put("sandwich", 4.0);
+  foods.put("salad", 5.00);
+  foods.put("cake", 3.50); 
 
 }
 

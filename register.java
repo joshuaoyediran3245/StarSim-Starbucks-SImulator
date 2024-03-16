@@ -8,7 +8,7 @@ public class register {
     private ArrayList<ArrayList<String>> ordersPlaced = new ArrayList<ArrayList<String>>();
     private ArrayList<String> temporalList= new ArrayList<String>();
     private ArrayList<Double> pricesOfOrders = new ArrayList<Double>();
-
+    private double tax = 1.21;
 // add item with price and name
 public void additem(double price, String item, int orderNumber)
 {
@@ -31,7 +31,7 @@ public void additem(double price, String item, int orderNumber)
 // Gives total value of order
 public double getTotal()
 {
-    return totalPrice;
+    return totalPrice*tax;
 }
 // Count item, we did not use it, we can use it in the future
 public int getOrdersCount() 
@@ -79,7 +79,8 @@ public void openSelectedOrder(int orderNumber)
         }
         
     }
-    System.out.println("["+listForView+"]"+" Your total for this order is: $"+pricesOfOrders.get(orderNumber-1));
+
+    System.out.println("["+listForView+"]"+String.format(" [Your total for this order is: $%.2f",pricesOfOrders.get(orderNumber-1)*tax)+"]");
 
 }
 // Add price of the order to an arraylist and it has the same index of the number of order, It cleans the variable totalPrice so another other starts from $0

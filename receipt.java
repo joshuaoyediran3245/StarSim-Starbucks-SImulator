@@ -8,7 +8,7 @@ public class receipt {
 
 private String finalReceipt;
 private HashMap<String, Double> beveragesAndFood = new HashMap<String,Double>(); //One map for everything
-
+private double tax = 1.21;
 
 public String printReceipt(ArrayList<String> orderList,int orderNumber,double total)
 {
@@ -32,7 +32,8 @@ for(int i =0;i<orderList.size();i++)
                          
 }
 finalReceipt+="|------------------|"+"\n";
-finalReceipt+=String.format("|Your Total : $%4s|",total)+"\n";
+finalReceipt+=String.format("|Total tax :  $%4.2f|",(total)-total/tax)+"\n";
+finalReceipt+=String.format("|Your Total: $%5.2f|",total)+"\n";
 finalReceipt+=" ------------------"+"\n";
 return finalReceipt;
 }

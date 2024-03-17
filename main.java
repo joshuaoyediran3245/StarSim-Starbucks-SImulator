@@ -152,7 +152,7 @@ public class main{
             
             
             //Gives total and the customer goes back to the first loop, where the options are displayed again
-            System.out.println("[Your total today is: $"+(reg1.getTotalOfAnOrder(orderNumber)+tip)+"]");
+            System.out.println("[Your total today is: $"+String.format("%.2f",(reg1.getTotalOfAnOrder(orderNumber)+tip))+"]");
             System.out.println("[Your order is going to be ready in a moment]");
              
 

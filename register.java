@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class register {
 // For now this are the private variables, we can add more, im still figuring out how to do it better
     
-private double totalPrice;
+    private double totalPrice;
     private ArrayList<ArrayList<String>> ordersPlaced = new ArrayList<ArrayList<String>>();
     private ArrayList<String> temporalList= new ArrayList<String>();
     private ArrayList<Double> pricesOfOrders = new ArrayList<Double>();

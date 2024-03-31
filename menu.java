@@ -1,21 +1,16 @@
 import java.util.HashMap;
 import java.util.Map;
 
-
 //Even though we did not go over HashMap Data Structure
 // After doing futher research a HashMap would make more sense for displaying the item name and price 
 //The HashMap can store in a key and a value. 
 //In this case the key would be the item name ex. Caffe Americano. And the value would be the price $2.5
 
-
-
-
 public class menu {
+
 //Create the map top store menu items with their prices
-
-private Map<String, Double> beverages; //One map for beverages
-private Map<String, Double> foods; // One map for foods
-
+protected Map<String, Double> beverages; //One map for beverages
+protected Map<String, Double> foods; // One map for foods
 
 //Constructor to initialize menu items 
 
@@ -31,7 +26,6 @@ public void ListMenu()
   beverages.put("cappuccino", 3.00);
   beverages.put("espresso", 2.00);
   beverages.put("frappuccino", 3.50); 
-
 
   //Populate Foods
 
@@ -52,14 +46,9 @@ public void displayMenuDrinks()
   //This for-each loop iterates over the keys of the 'beverages' map. This beverages map contains the names of the beverages set to keys and their prices set to values
   for (String beverage : beverages.keySet())
   {
-  System.out.printf("%-20s $%.2f%n", beverage, beverages.get(beverage));
+    System.out.printf("%-20s $%.2f%n", beverage, beverages.get(beverage));
   }
-
-
-
-
 }
-
 
 // Here we are going to get the price of an item when we want to place an order for Drinks
 public double getPriceDrink(String drink)
@@ -80,11 +69,11 @@ public boolean checkMenuDrink(String drink)
 public void displayFoodMenu() 
 {
   System.out.println("Food Items: ");
-
+  
   //This for-each loop iterates over the keys of the 'foods' map. This foods map contains the names of the foods set to keys and their prices set to values
   for (String food : foods.keySet())
   {
-  System.out.printf("%-20s $%.2f%n", food, foods.get(food));
+    System.out.printf("%-20s $%.2f%n", food, foods.get(food));
   }
 
 }
@@ -96,25 +85,10 @@ public boolean checkMenuFood(String food)
   return checking;
 }
 
-
 // Here we are going to get the price of an item when we want to place an order for Foods
 public double getPriceFood(String food)
 {
   double priceOfFood = foods.get(food);
   return priceOfFood;
 }
-
-
-public Map<String,Double> mapPassDrinks()
-{
-
-  return beverages ;
-}
-public Map<String,Double> mapPassFood()
-{
-  
-  
-  return foods;
-}
-
 }

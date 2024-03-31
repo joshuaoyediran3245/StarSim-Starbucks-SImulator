@@ -2,18 +2,17 @@
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-public class receipt {
+public class receipt extends menu {
 
-
-
+// Instance Variables
 private String finalReceipt;
-private HashMap<String, Double> beveragesAndFood = new HashMap<String,Double>(); //One map for everything
+private Map<String, Double> beveragesAndFood; //One map for everything
 private double tax = 1.21;
 private ArrayList<Double> tipsOfOrders = new ArrayList<Double>();
 
+// Prints receipt, return a String which is the finished receipt
 public String printReceipt(ArrayList<String> orderList,int orderNumber,double total)
 {
-
 finalReceipt ="";
 for(int i =0;i<orderList.size();i++)
 {
@@ -22,13 +21,11 @@ for(int i =0;i<orderList.size();i++)
         finalReceipt+=" ------------------"+"\n";
         finalReceipt+="|  Order Number: "+orderNumber+" |"+"\n";
         finalReceipt+="|------------------|"+"\n";
-        finalReceipt+=String.format("|%-14s$%.1f|",orderList.get(i),beveragesAndFood.get(orderList.get(i)))+"\n";
-        
+        finalReceipt+=String.format("|%-14s$%.1f|",orderList.get(i),beveragesAndFood.get(orderList.get(i)))+"\n";   
     }
     else
     {
         finalReceipt+=String.format("|%-14s$%.1f|",orderList.get(i),beveragesAndFood.get(orderList.get(i)))+"\n";
-    
     }
                          
 }
@@ -40,28 +37,7 @@ finalReceipt+=" ------------------"+"\n";
 return finalReceipt;
 }
 
-public void MapReciverFood(Map<String,Double> list)
-{
-    for(Map.Entry<String,Double> entry : list.entrySet())
-    {
-        if(!beveragesAndFood.containsKey(entry.getKey()))
-        {
-            beveragesAndFood.put(entry.getKey(),entry.getValue());
-        }
-    }
-}
-public void MapReciverDrinks(Map<String,Double> list)
-{
-    for(Map.Entry<String,Double> entry : list.entrySet())
-    {
-        if(!beveragesAndFood.containsKey(entry.getKey()))
-        {
-            beveragesAndFood.put(entry.getKey(),entry.getValue());
-        }
-    }
-}
-
-
+// Saves tips for use of the program
 public double saveTip(String tip)
 
 {
@@ -78,11 +54,46 @@ public double saveTip(String tip)
     }
 }
 
+// returns tips for use of the program
 public double getTip(int orderNumber)
 {
     Double tip = tipsOfOrders.get(orderNumber-1);
     return tip;
-
 }
+
+// Saves tips from the file that it was read before
+public void saveTipFile(double numero)
+{
+    tipsOfOrders.add(numero);
+}
+
+// Returns tips so they can be saves in file
+public ArrayList<Double> fileTips()
+{
+    return this.tipsOfOrders;
+}
+
+// Puts together all items so the class has a easier acces
+public void alltogether()
+{
+    beveragesAndFood = new  HashMap<String,Double>();
+
+    for(String entry : beverages.keySet())
+    {
+        if(!beveragesAndFood.containsKey(entry))
+        {
+            beveragesAndFood.put(entry,beverages.get(entry));
+        }
+    }
+
+    for(String entry : foods.keySet())
+    {
+        if(!beveragesAndFood.containsKey(entry))
+        {
+            beveragesAndFood.put(entry,foods.get(entry));
+        }
+    }
+}
+
 //>>>>>>> 5a50953f2f3b78fb08e492a67dfbc1b03983c66a
 }

@@ -107,7 +107,8 @@ public class main{
     // Main loop of the program initiates
     while(!programFinished)
     {
-        
+        orderNumber = reg1.getOrdersCount()+1;
+
         // We show the options and take the input, depending on the input the program will show the different otions
         System.out.println("[1] Place an Order");  
         System.out.println("[2] See History of Orders");  

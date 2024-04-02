@@ -1,4 +1,9 @@
 //<<<<<<< HEAD
+// This class takes care of building all the receipts for the orders but also it saves the tips that customer choose to give
+// The receipt child class of the menu because it needs the items of the menu with their specific price
+// If the prices in the menu are changed or the items served are change, because this is a child class it will also change
+// This class also has methods to read and write information with files
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -19,7 +24,7 @@ for(int i =0;i<orderList.size();i++)
     if(i==0)
     {
         finalReceipt+=" ------------------"+"\n";
-        finalReceipt+="|  Order Number: "+orderNumber+" |"+"\n";
+        finalReceipt+="|  Order Number:"+String.format("%-2d",orderNumber)+" |"+"\n";
         finalReceipt+="|------------------|"+"\n";
         finalReceipt+=String.format("|%-14s$%.1f|",orderList.get(i),beveragesAndFood.get(orderList.get(i)))+"\n";   
     }

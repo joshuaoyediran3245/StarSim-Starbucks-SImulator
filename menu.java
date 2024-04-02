@@ -68,6 +68,7 @@ public boolean checkMenuDrink(String drink)
 
 public void displayFoodMenu() 
 {
+  System.out.println("==== Starbucks Menu ===="); //Using SOP to display the "Graphics" for the menu
   System.out.println("Food Items: ");
   
   //This for-each loop iterates over the keys of the 'foods' map. This foods map contains the names of the foods set to keys and their prices set to values

@@ -14,6 +14,7 @@ public class main{
     receipt rec1 = new receipt();
     
     // Variables used for file reading
+    // The file where the orders are read is orders.txt , once the orders are read they will be saved, so the program can write them in the same file again once its dome
     double numerito;
     String product;
     String s;
@@ -260,8 +261,8 @@ public class main{
             int pastOrders=reg1.getOrdersCount();
             if(pastOrders==0)
             {
-                System.out.println("There is no history on previos orders");
-                System.out.println("Please place an order first");
+                System.out.println("[There is no history on previos orders]");
+                System.out.println("[Please place an order, then use history]");
             }
             // Display the number of orders so the customer can select one
             else
@@ -310,6 +311,9 @@ public class main{
     // save progress in file 
     try
         {
+           
+           // Here a file with the same is created and then deleted, we apply this so there is no duplicates from the orders that were in the file before
+           // Now that the file is empty we will write all that was in the file plus all the new orders that the program made
             File f = new File("orders.txt");
             f.delete();
 

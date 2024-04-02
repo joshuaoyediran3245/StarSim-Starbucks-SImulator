@@ -1,4 +1,5 @@
 // Insted of using a transaction class, lets use a register one that collects num of items, total price and an arraylist with the String name of the items.
+// This class also has methods to read information and to write information in a file
 import java.util.ArrayList;
 
 
@@ -44,8 +45,8 @@ public int getOrdersCount()
 public void displayPastOrders()
 {
     //Strings all the name of the items in the order toghether
-    System.out.println("There is "+ ordersPlaced.size()+" orders");
-    System.out.println("Which one would you like to view?");
+    System.out.println("[There is "+ ordersPlaced.size()+" orders]");
+    System.out.println("[Select the number of the order to view]");
     for(int i = 0; i<ordersPlaced.size();i++)
     {
         if(i==0)
@@ -54,7 +55,7 @@ public void displayPastOrders()
         }
         else
         {
-            System.out.print(",[Order Number:"+(i+1)+"]");  
+            System.out.print(" [Order Number:"+(i+1)+"]");  
         }
     }
     System.out.println("");
@@ -77,7 +78,7 @@ public void openSelectedOrder(int orderNumber)
         }
         else
         {
-            listForView=listForView+","+listOfItems.get(i);
+            listForView=listForView+", "+listOfItems.get(i);
         }
     }
     System.out.println("[Items in the order: "+listForView+"]");

@@ -3,7 +3,7 @@
 // they need to select a posible number a different one would put them back in the loop
 import java.io.*;
 import java.util.*;
-public class main{
+public class main {
 
     public static void main(String[] args){
     
@@ -112,13 +112,14 @@ public class main{
 
         // We show the options and take the input, depending on the input the program will show the different otions
         System.out.println("[1] Place an Order");  
-        System.out.println("[2] See History of Orders");  
-        System.out.println("[3] Quit");  
+        System.out.println("[2] See History of Orders");
+        System.out.println("[3] Clear History of Orders");
+        System.out.println("[4] Quit");  
         int decision = scan.nextInt();
 
         // Check that they are selecting a posible option
 
-        while  ((decision!=1) && (decision!=2 ) && (decision!=3))
+        while  ((decision!=1) && (decision!=2 ) && (decision!=3) && (decision!=4))
         {
             System.out.println("Invalid option");
             System.out.println("Please select on of the options");
@@ -303,10 +304,35 @@ public class main{
             }
         }
         // Exits the program
-        else if(decision==3)
+        else if(decision==4)
         {
             programFinished = true;
         }
+
+        // clears history of orders
+        else if(decision==3)
+        {
+            //ask if they want to clear the history
+            System.out.println("[Are you sure you want to clear the history of orders?]");
+            System.out.println("[yes][no]");
+
+            // Checks for a valid option and handles error
+            checkNum = scan.next();
+            while(!((checkNum.toLowerCase()).equals("yes")||(checkNum.toLowerCase()).equals("no")))
+            {
+                System.out.println("Invalid option");
+                System.out.println("Please insert yes or no");
+                checkNum = scan.next();
+            }
+                if(checkNum.toLowerCase().equals("yes"))
+                {
+                    reg1.clearRegister();
+                    rec1.clearReceipt();
+                    System.out.println("[History of orders: cleared]");
+                }
+            }
+
+
     }
     // save progress in file 
     try

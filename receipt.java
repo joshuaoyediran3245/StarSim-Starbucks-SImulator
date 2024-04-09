@@ -100,5 +100,11 @@ public void alltogether()
     }
 }
 
+// Clear tips from receipt
+public void clearReceipt()
+{
+    tipsOfOrders.clear();
+}
+
 //>>>>>>> 5a50953f2f3b78fb08e492a67dfbc1b03983c66a
 }

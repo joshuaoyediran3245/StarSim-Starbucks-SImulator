@@ -131,4 +131,14 @@ public ArrayList<Double> fileTotalOfOrders()
 {
     return this.pricesOfOrders;
 }
+
+// clears list of items of all orders and totals of orders
+
+public void clearRegister()
+{
+    ordersPlaced.clear();
+    pricesOfOrders.clear();
+
+}
+
 }

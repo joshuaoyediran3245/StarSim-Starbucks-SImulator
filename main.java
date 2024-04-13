@@ -115,20 +115,20 @@ public class main {
         System.out.println("[2] See History of Orders");
         System.out.println("[3] Clear History of Orders");
         System.out.println("[4] Quit");  
-        int decision = scan.nextInt();
+        String decision = scan.next();
 
         // Check that they are selecting a posible option
 
-        while  ((decision!=1) && (decision!=2 ) && (decision!=3) && (decision!=4))
+        while  ((!decision.equals("1")) && (!decision.equals("2")) && (!decision.equals("3")) && (!decision.equals("4")))
         {
             System.out.println("Invalid option");
             System.out.println("Please select on of the options");
-            decision = scan.nextInt();
+            decision = scan.next();
             
         }
         // Begin to display menu and construct order, max items 2,
         
-            if(decision==1)
+            if(decision.equals("1"))
             {
             //Display the menu for drinks
                 
@@ -256,7 +256,7 @@ public class main {
             }
         
         // Option to display past orders, still working on it, i need to figure out the way to have more than one order saved!
-        else if(decision==2)
+        else if(decision.equals("2"))
         {
             //Checks that there is al least 1 order, else it would not go pass that
             int pastOrders=reg1.getOrdersCount();
@@ -304,13 +304,13 @@ public class main {
             }
         }
         // Exits the program
-        else if(decision==4)
+        else if(decision.equals("4"))
         {
             programFinished = true;
         }
 
         // clears history of orders
-        else if(decision==3)
+        else if(decision.equals("3"))
         {
             //ask if they want to clear the history
             System.out.println("[Are you sure you want to clear the history of orders?]");

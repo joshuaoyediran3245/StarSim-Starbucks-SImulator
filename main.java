@@ -122,7 +122,7 @@ public class main {
         while  ((!decision.equals("1")) && (!decision.equals("2")) && (!decision.equals("3")) && (!decision.equals("4")))
         {
             System.out.println("Invalid option");
-            System.out.println("Please select on of the options");
+            System.out.println("Please select one of the options");
             decision = scan.next();
             
         }
